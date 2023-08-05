@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.zoosite.test.Users" table="users">
+		<id name="user_id" column="user_id">
+			<generator class="native" />
+		</id>
+		<property name="uname" column="uname"></property>
+		<property name="pass" column="pass"></property>
+		<property name="email" column="email"></property>
+		<property name="phn_no" column="phn_no"></property>
+		<property name="active" column="active"></property>
+		<property name="role" column="role"></property>
+	</class>
+
+
+	<query name="findUser">  
+<![CDATA[from Users u where u.active = 1]]>  
+</query>
+	<query name="validateUser">  
+<![CDATA[from Users u where u.active = 1 and u.email= :email ]]>  
+</query>
+	<query name="checkByEmail">  
+<![CDATA[from Users u where u.active = 1 and u.email= :email]]>  
+</query>
+</hibernate-mapping>

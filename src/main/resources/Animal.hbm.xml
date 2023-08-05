@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.zoosite.test.Animals" table="Animals">
+        <id name="id" column="id">
+            <generator class="native" />
+        </id>
+        <property name="name" column="name"></property>
+        <property name="gender" column="gender"></property>
+        <property name="Sname" column="s_name"></property>
+        <property name="active" column="active"></property>
+        <many-to-one name="zoo" class="com.zoosite.test.Zoo" fetch="join" lazy="false">
+        <column name="zoo.zoo_id"></column>
+        </many-to-one>
+    </class>
+
+
+    <query name="findAnimals">  
+<![CDATA[from Animals where active = 1]]>  
+</query>
+</hibernate-mapping>

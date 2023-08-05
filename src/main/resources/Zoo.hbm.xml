@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.zoosite.test.Zoo" table="zoo">
+		<id name="zoo_id" column="zoo_id">
+			<generator class="native" />
+		</id>
+		<property name="zoo_name" column="zoo_name"></property>
+		<property name="state" column="state"></property>
+		<property name="city" column="city"></property>
+		<property name="area" column="area"></property>
+		<property name="activity" column="activity"></property>
+
+	</class>
+
+	<query name="findZoo">  
+<![CDATA[from Zoo z where z.activity = 1]]>  
+</query>
+</hibernate-mapping>
